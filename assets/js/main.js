@@ -26,9 +26,7 @@ createApp({
                 })
         },
         addTask() {
-            const data = {
-                task: this.task.text,
-            }
+            const data = { task: this.newTask.text }
             axios
                 .post(this.api_url, data, {
                     headers: { 'Content-Type': 'multipart/form-data' }
@@ -39,6 +37,7 @@ createApp({
                 }).catch(err => {
                     console.log(err.message);
                 })
+            this.newTask.text = ""
         },
         taskDone(i) {
             //console.log("clicked", i);
