@@ -9,7 +9,7 @@ createApp({
             newTask: {
                 text: "",
                 done: false
-            },
+            }
         }
     },
     methods: {
