@@ -25,7 +25,7 @@ createApp({
                     console.error(error.message);
                 })
         },
-        /* addTask() {
+        addTask() {
             const data = {
                 task: this.task.text,
             }
@@ -39,7 +39,7 @@ createApp({
                 }).catch(err => {
                     console.log(err.message);
                 })
-        }, */
+        },
         taskDone(i) {
             //console.log("clicked", i);
             this.tasks[i].done = !this.tasks[i].done;
