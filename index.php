@@ -44,9 +44,11 @@ Abilitare l’eliminazione di un task
     <div class="container" id="app">
         <div>
             <h1 class="mt-3">To Do List</h1>
-            <input type="text" @keyup.enter="addTask" v-model="newTask.text" class="mt-5">
-            <button class="mx-3 px-2 rounded-1" @click="addTask">Add Task</button>
-            <small v-show="error" class="text-danger">Devi inserire almeno 5 caratteri</small>
+            <form action="" method="post">
+                <input type="text" @keyup.enter="addTask" v-model="newTask.text" class="mt-5">
+                <button class="mx-3 px-2 rounded-1" @click="addTask">Add Task</button>
+                <small v-show="error" class="text-danger">Devi inserire almeno 5 caratteri</small>
+            </form>
         </div>
         <div>
             <h5 class="mt-5">things to do:</h3>
@@ -68,7 +70,7 @@ Abilitare l’eliminazione di un task
 
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@3.2.41/dist/vue.global.min.js"></script>
     <script src="./assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>

@@ -3,12 +3,14 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            error: false,
+            tasks: {},
+            api_url: "../../server.php"
+            /* error: false,
             newTask: {
                 text: "",
                 done: false,
-            },
-            tasks: [
+            }, */
+            /* tasks: [
                 {
                     text: "spazzare",
                     done: false,
@@ -21,11 +23,22 @@ createApp({
                     text: "passare lo straccio",
                     done: false,
                 }
-            ]
+            ] */
         }
     },
     methods: {
-        addTask() {
+        readTasks(url) {
+            axios
+                .get(url)
+                .then(response => {
+                    console.log(response);
+                })
+                .catch(error => {
+                    console.error(error.message);
+                })
+        }
+
+        /* addTask() {
             if (this.newTask.text.length < 5) {
                 this.error = true
             } else {
@@ -42,6 +55,9 @@ createApp({
         },
         removeTask(i) {
             this.tasks.splice(i, 1)
-        }
+        } */
+    },
+    mounted() {
+        this.readTasks(this.api_url)
     }
 }).mount('#app')
