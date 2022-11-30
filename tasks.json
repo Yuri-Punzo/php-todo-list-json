@@ -1,5 +1,14 @@
-/* [
-    "spazzare",
-    "spolverare",
-    "passare lo straccio"
-] */
+[
+    {
+        "text": "spazzare",
+        "done": false
+    },
+    {
+        "text": "spolverare",
+        "done": false
+    },
+    {
+        "text": "passare lo straccio",
+        "done": false
+    }
+]
