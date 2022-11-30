@@ -45,17 +45,17 @@ Abilitare l’eliminazione di un task
         <div>
             <h1 class="mt-3">To Do List</h1>
             <form action="" method="post">
-                <input type="text" @keyup.enter="addTask" v-model="newTask.text" class="mt-5">
-                <button class="mx-3 px-2 rounded-1" @click="addTask">Add Task</button>
+                <input type="text" /@keyup.enter="addTask" v-model="newTask.text" class="mt-5">
+                <button class="mx-3 px-2 rounded-1" /@click="addTask">Add Task</button>
                 <small v-show="error" class="text-danger">Devi inserire almeno 5 caratteri</small>
             </form>
         </div>
         <div>
             <h5 class="mt-5">things to do:</h3>
                 <ul v-if="tasks.length !== 0">
-                    <li v-for="(task,i) in tasks" @click.stop="taskDone(i)" :class="{crossed: tasks[i].done}">
+                    <li v-for="(task,i) in tasks" /@click.stop="taskDone(i)" :class="{crossed: tasks[i].done}">
                         {{task.text}}
-                        <i class="bold mx-2 text-danger fs-5 fa-solid fa-xmark" @click.stop="removeTask(i)"></i>
+                        <!-- <i class="bold mx-2 text-danger fs-5 fa-solid fa-xmark" @click.stop="removeTask(i)"></i> -->
                     </li>
                 </ul>
                 <p v-else>

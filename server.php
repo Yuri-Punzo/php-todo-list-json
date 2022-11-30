@@ -13,3 +13,6 @@ $tasks = [
         "done" => false
     ]
 ];
+
+header("Content-Type: application/json");
+echo json_encode($tasks);

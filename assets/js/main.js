@@ -3,25 +3,25 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            tasks: {},
-            api_url: "../../server.php"
-            /* error: false,
+            tasks: [],
+            api_url: "server.php",
+            error: false,
             newTask: {
                 text: "",
-                done: false,
-            }, */
+                done: false
+            },
             /* tasks: [
                 {
                     text: "spazzare",
-                    done: false,
+                    done: false
                 },
                 {
                     text: "spolverare",
-                    done: false,
+                    done: false
                 },
                 {
                     text: "passare lo straccio",
-                    done: false,
+                    done: false
                 }
             ] */
         }
@@ -32,12 +32,13 @@ createApp({
                 .get(url)
                 .then(response => {
                     console.log(response);
+                    this.tasks = response.data
+                    console.log(this.tasks);
                 })
                 .catch(error => {
                     console.error(error.message);
                 })
-        }
-
+        },
         /* addTask() {
             if (this.newTask.text.length < 5) {
                 this.error = true
@@ -48,12 +49,12 @@ createApp({
                     done: false,
                 }
             }
-        },
+        }, */
         taskDone(i) {
             //console.log("clicked", i);
             this.tasks[i].done = !this.tasks[i].done;
         },
-        removeTask(i) {
+        /* removeTask(i) {
             this.tasks.splice(i, 1)
         } */
     },
