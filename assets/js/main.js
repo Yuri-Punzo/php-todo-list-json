@@ -10,20 +10,6 @@ createApp({
                 text: "",
                 done: false
             },
-            /* tasks: [
-                {
-                    text: "spazzare",
-                    done: false
-                },
-                {
-                    text: "spolverare",
-                    done: false
-                },
-                {
-                    text: "passare lo straccio",
-                    done: false
-                }
-            ] */
         }
     },
     methods: {
@@ -31,32 +17,36 @@ createApp({
             axios
                 .get(url)
                 .then(response => {
-                    console.log(response);
+                    //console.log(response);
                     this.tasks = response.data
-                    console.log(this.tasks);
+                    //console.log(this.tasks);
                 })
                 .catch(error => {
                     console.error(error.message);
                 })
         },
         /* addTask() {
-            if (this.newTask.text.length < 5) {
-                this.error = true
-            } else {
-                this.tasks.unshift(this.newTask)
-                this.newTask = {
-                    text: "",
-                    done: false,
-                }
+            const data = {
+                task: this.task.text,
             }
+            axios
+                .post(this.api_url, data, {
+                    headers: { 'Content-Type': 'multipart/form-data' }
+                })
+                .then((response) => {
+                    this.tasks = response.data
+
+                }).catch(err => {
+                    console.log(err.message);
+                })
         }, */
         taskDone(i) {
             //console.log("clicked", i);
             this.tasks[i].done = !this.tasks[i].done;
         },
-        /* removeTask(i) {
+        removeTask(i) {
             this.tasks.splice(i, 1)
-        } */
+        }
     },
     mounted() {
         this.readTasks(this.api_url)

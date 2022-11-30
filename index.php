@@ -44,8 +44,8 @@ Abilitare l’eliminazione di un task
     <div class="container" id="app">
         <div>
             <h1 class="mt-3">To Do List</h1>
-            <form action="server.php" method="post">
-                <input type="text" @keyup.enter="addTask" v-model="newTask.text" class="mt-5">
+            <form action="index.php" method="post">
+                <input type="text" name="task" id="task" @keyup.enter="addTask" v-model="newTask.text" class="mt-5">
                 <button type="submit" class="mx-3 px-2 rounded-1" @click="addTask">Add Task</button>
                 <small v-show="error" class="text-danger">Devi inserire almeno 5 caratteri</small>
             </form>
