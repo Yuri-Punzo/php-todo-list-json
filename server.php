@@ -16,3 +16,8 @@ $tasks = [
 
 header("Content-Type: application/json");
 echo json_encode($tasks);
+
+/* if $added_task = $_GET("text");
+
+var_dump($added_task);
+ */

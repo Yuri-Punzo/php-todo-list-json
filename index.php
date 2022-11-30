@@ -21,7 +21,18 @@ Permettere il toggle del task (completato/non completato)
 Abilitare l’eliminazione di un task
  -->
 <?php
+function addTask(url){
+    axios
+        .get(url);
+        .then(response => {
 
+        })
+
+};
+
+if (isset($_GET["text"]) >= 5) {
+    addTask(url);
+}
 ?>
 
 <!doctype html>
@@ -44,16 +55,16 @@ Abilitare l’eliminazione di un task
     <div class="container" id="app">
         <div>
             <h1 class="mt-3">To Do List</h1>
-            <form action="" method="post">
-                <input type="text" /@keyup.enter="addTask" v-model="newTask.text" class="mt-5">
-                <button class="mx-3 px-2 rounded-1" /@click="addTask">Add Task</button>
-                <small v-show="error" class="text-danger">Devi inserire almeno 5 caratteri</small>
+            <form action="server.php" method="post">
+                <input type="text" name="text" id="text" /@keyup.enter="addTask" v-model="newTask.text" class="mt-5">
+                <button type="submit" class="mx-3 px-2 rounded-1">Add Task</button>
+                <!-- <small v-show="error" class="text-danger">Devi inserire almeno 5 caratteri</small> -->
             </form>
         </div>
         <div>
             <h5 class="mt-5">things to do:</h3>
                 <ul v-if="tasks.length !== 0">
-                    <li v-for="(task,i) in tasks" /@click.stop="taskDone(i)" :class="{crossed: tasks[i].done}">
+                    <li v-for="(task,i) in tasks" @click.stop="taskDone(i)" :class="{crossed: tasks[i].done}">
                         {{task.text}}
                         <!-- <i class="bold mx-2 text-danger fs-5 fa-solid fa-xmark" @click.stop="removeTask(i)"></i> -->
                     </li>
