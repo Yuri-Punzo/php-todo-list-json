@@ -10,5 +10,9 @@
     {
         "text": "passare lo straccio",
         "done": false
+    },
+    {
+        "text": "esercizio completato con bonus",
+        "done": false
     }
 ]

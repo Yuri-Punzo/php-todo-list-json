@@ -62,12 +62,7 @@ Abilitare l’eliminazione di un task
         </div>
     </div>
 
-
-
-
-
-
-
+    <!-- script -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@3.2.41/dist/vue.global.min.js"></script>
     <script src="./assets/js/main.js"></script>

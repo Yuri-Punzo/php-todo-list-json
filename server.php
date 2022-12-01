@@ -1,5 +1,5 @@
 <?php
-$tasks = [
+/* $tasks = [
     [
         "text" => "spazzare",
         "done" => false
@@ -12,7 +12,10 @@ $tasks = [
         "text" => "passare lo straccio",
         "done" => false
     ]
-];
+]; */
+$tasks = file_get_contents('tasks.json');
+$all_tasks = json_decode($tasks, true);
+
 
 if (isset($_POST['task'])) {
 
@@ -20,10 +23,10 @@ if (isset($_POST['task'])) {
         'text' => $_POST['task'],
         'done' => false,
     ];
-    array_push($tasks, $task);
-    /* $json_tasks = json_encode($all_tasks);
-    file_put_contents('tasks.json', $json_tasks); */
+    array_push($all_tasks, $task);
+    $json_tasks = json_encode($all_tasks);
+    file_put_contents('tasks.json', $json_tasks);
 }
 
 header('Content-Type: application/json');
-echo json_encode($tasks);
+echo json_encode($all_tasks);
